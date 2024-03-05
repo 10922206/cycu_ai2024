@@ -63,6 +63,9 @@ plt.legend()  # 顯示圖例
 # 翻轉 x 軸的座標
 plt.gca().invert_xaxis()
 
+# 將 x 軸的日期標籤旋轉 90 度並設定字體大小
+plt.xticks(rotation=90, fontsize=5)
+
 # 設定中文字型
 plt.rcParams['font.sans-serif'] = ['Microsoft JhengHei']  # 設定中文字型為微軟正黑體
 
