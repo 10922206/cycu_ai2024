@@ -1,5 +1,7 @@
 import csv
 from collections import Counter
+import matplotlib.pyplot as plt
+from matplotlib.font_manager import FontProperties
 
 # 儲存第八列的數字
 numbers = []
@@ -18,13 +20,35 @@ with open('C:\\Users\\User\\Downloads\\112年1-10月交通事故簡訊通報資�
 # 計算每個數字出現的次數
 counter = Counter(numbers)
 
-# 列印每個數字及其出現的次數
-for number, count in counter.items():
-    print(f'數字 {number} 出現了 {count} 次')
-    #將結果寫入新的CSV檔案
-    with open('C:\\Users\\User\\Downloads\\result.csv', 'w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
-        writer.writerow(['數字', '次數'])
-        for number, count in counter.items():
-            writer.writerow([number, count])
-    
+# 獲取數字和次數
+numbers = list(counter.keys())
+counts = list(counter.values())
+
+# 找出次數最高的數字和次數
+max_count = max(counts)
+max_count_index = counts.index(max_count)
+max_count_number = numbers[max_count_index]
+
+# 設置字體為Microsoft JhengHei
+font = FontProperties(fname=r"c:\windows\fonts\msjh.ttc", size=14)
+
+# 繪製長條圖
+plt.bar(numbers, counts)
+plt.xlabel('數字', fontproperties=font)
+plt.ylabel('次數', fontproperties=font)
+plt.title('數字出現的次數', fontproperties=font)
+
+# 設置x軸的範圍
+plt.xlim([min(numbers), max(numbers)])
+
+# 標示出次數最高的數字
+plt.annotate(f'最高次數: {max_count}', 
+             xy=(max_count_number, max_count), 
+             xytext=(max_count_number, max_count + 5), 
+             arrowprops=dict(facecolor='red', shrink=0.05),
+             fontproperties=font)
+
+# 顯示最高次數的x值和y值
+print(f'最高次數的x值: {max_count_number}, y值: {max_count}')
+
+plt.show()
