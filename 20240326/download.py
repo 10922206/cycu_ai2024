@@ -1,8 +1,8 @@
 import requests
 
-url = 'http://tisvcloud.freeway.gov.tw/history/TDCS/00'
+url = 'https://tisvcloud.freeway.gov.tw/history/TDCS/M03A/20240325/24/'
 
-filename ='''TDCS_M03A_20240325_000000.csv'''
+filename ='''TDCS_M03A_20240325_240000.csv'''
 # filename 最後面的數字代表的是小時 分鐘 與秒，例如 000000 代表 00:00:00 
 # 000500 代表 00:05:00
 # 如果每5分鐘一筆資料,利用迴圈產生檔名
