@@ -9,7 +9,7 @@ import pandas as pd
 taiwan=gpd.read_file('20240402/county/county_moi_1090820.shp')
 import os
 #print cwd
-print (taiwan.shape)
+print (taiwan)
 
 #plot taiwan using matplotlib
 import matplotlib.pyplot as plt  # 修正這裡
