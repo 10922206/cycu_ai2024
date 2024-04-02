@@ -12,7 +12,7 @@ import os
 print (taiwan.shape)
 
 #plot taiwan using matplotlib
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt  # 修正這裡
 taiwan.plot()
 plt.show()
 #save to png file
